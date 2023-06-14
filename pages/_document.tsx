@@ -10,8 +10,8 @@ export default function Document() {
         <MetadataHead
           title='Maxi Pinna - Intuitivo front-end test'
           type='website'
-          url='https://maxipinna.com/'
-          image='/images/og-image.png'
+          url='https://intuitivo-challenge.vercel.app/'
+          image='images/og-image.png'
           description='Test front-end Intuitivo'
         />
 
