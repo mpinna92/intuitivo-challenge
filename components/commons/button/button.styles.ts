@@ -38,4 +38,33 @@ export const ButtonWrapper = styled.button`
       border-color: ${(props) => props.theme.colors.primary};
     }
   }
+
+  &.view,
+  &.edit,
+  &.delete {
+    a {
+      min-width: 100px;
+      height: 30px;
+      border: none;
+      background-color: ${(props) => props.theme.colors.grayDark};
+      color: ${(props) => props.theme.colors.white};
+      font-size: 0.8rem;
+      &:hover {
+        cursor: pointer;
+        background-color: ${(props) => props.theme.colors.primaryDark};
+      }
+    }
+  }
+
+  &.edit {
+    a {
+      background-color: ${(props) => props.theme.colors.purple};
+    }
+  }
+
+  &.delete {
+    a {
+      background-color: ${(props) => props.theme.colors.primary};
+    }
+  }
 `;

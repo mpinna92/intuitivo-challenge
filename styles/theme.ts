@@ -1,6 +1,7 @@
 export const theming = {
   colors: {
     primary: "#FF4069",
+    primaryDark: "#af203e",
     background: "#171717",
     grayLight: "#CBCBCB",
     grayMedium: "#6B6B6B",

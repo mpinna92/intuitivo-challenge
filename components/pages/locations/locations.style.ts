@@ -25,7 +25,7 @@ export const NoLocations = styled.p`
 
 export const LocationsGrid = styled.div`
   width: 100%;
-  max-width: 800px;
+  max-width: 600px;
   display: flex;
   flex-flow: column;
   margin: 0 auto;

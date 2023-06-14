@@ -7,6 +7,7 @@ interface ButtonProps {
   link?: string;
   onClick?: () => void;
   center?: boolean;
+  variant?: "view" | "edit" | "delete";
   icon?: JSX.Element;
 }
 
@@ -15,10 +16,11 @@ const Button = ({
   text,
   onClick,
   center,
+  variant,
   icon,
 }: ButtonProps) => {
   return (
-    <ButtonWrapper className={classes({ center })} onClick={onClick}>
+    <ButtonWrapper className={classes(variant, { center })} onClick={onClick}>
       <Link href={link}>
         {text}
         {icon}

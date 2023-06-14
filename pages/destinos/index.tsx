@@ -1,6 +1,7 @@
 import Head from "next/head";
+import { AxiosResponse } from "axios";
 import { GetServerSideProps } from "next";
-import { Location } from "typing";
+import { Country, Location } from "typing";
 import { ROUTES } from "config";
 import { getLocations } from "services/locations";
 import { FaLink, FaPlus } from "react-icons/fa";
@@ -16,13 +17,15 @@ import {
   LocationsTitle,
   NoLocations,
 } from "components/pages/locations/locations.style";
-import { AxiosResponse } from "axios";
+import { getCountries } from "services/countries";
 
 interface LocationsProps {
   locations: Location[];
+  countries: Country[];
 }
 
-const Locations = ({ locations }: LocationsProps) => {
+const Locations = ({ locations, countries }: LocationsProps) => {
+  console.log(locations, countries);
   return (
     <MainLayout>
       <Head>
@@ -63,21 +66,19 @@ const Locations = ({ locations }: LocationsProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+export const getServerSideProps: GetServerSideProps = async ({}) => {
   try {
-    const data: AxiosResponse<Location[]> = await getLocations();
-    return { props: { locations: data } };
+    const locations: AxiosResponse<Location[]> = await getLocations();
+    const countries: AxiosResponse<Country[]> = await getCountries();
+    return { props: { locations, countries } };
   } catch (error) {
-    if (res.statusCode) {
-      return {
-        redirect: {
-          destination: "/500",
-          permanent: true,
-        },
-      };
-    }
+    return {
+      redirect: {
+        destination: "/500",
+        permanent: true,
+      },
+    };
   }
-  return { props: {} };
 };
 
 export default Locations;
