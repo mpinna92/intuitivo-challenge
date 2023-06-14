@@ -11,7 +11,7 @@ export default function Document() {
           title='Maxi Pinna - Intuitivo front-end test'
           type='website'
           url='https://maxipinna.com/'
-          image='images/og_image.png'
+          image='https://opengraph.githubassets.com/39b2f7fccdecddadb9dbde938a065439f116f01f3de6a070bc9daec06e25e98d/intuitivo-ai/front-test'
           description='Test front-end Intuitivo'
         />
 
