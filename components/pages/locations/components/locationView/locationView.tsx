@@ -20,9 +20,9 @@ const LocationView = () => {
             key={location?.id}
             id={location?.id}
             name={location?.name}
+            countryId={location?.countryId}
             latitude={location?.latitude}
             longitude={location?.longitude}
-            countryId={location?.id}
           />
         ))}
       </LocationsGrid>

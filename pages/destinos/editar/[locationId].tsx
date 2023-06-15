@@ -49,13 +49,12 @@ const LocationEdit = () => {
   });
 
   useEffect(() => {
-    location &&
-      setEditData({
-        name: location?.name,
-        latitude: location?.latitude,
-        longitude: location?.longitude,
-        countryId: location?.countryId,
-      });
+    setEditData({
+      name: location?.name,
+      latitude: location?.latitude,
+      longitude: location?.longitude,
+      countryId: location?.countryId,
+    });
   }, [location]);
 
   return (
@@ -92,7 +91,9 @@ const LocationEdit = () => {
                   <Label>Nombre</Label>
                   <InputStyled
                     defaultValue={location?.name}
-                    onChange={(e) => setEditData({ name: e.target.value })}
+                    onChange={(e) =>
+                      setEditData({ name: e.currentTarget.value })
+                    }
                     name='name'
                   />
                 </InputWrapper>
@@ -102,7 +103,7 @@ const LocationEdit = () => {
                     defaultValue={location?.countryId}
                     onChange={(e) =>
                       setEditData({
-                        countryId: Number(e.target.value),
+                        countryId: Number(e.currentTarget.value),
                       })
                     }
                   >
@@ -118,7 +119,9 @@ const LocationEdit = () => {
                   <Label>Latitud</Label>
                   <InputStyled
                     defaultValue={location?.latitude}
-                    onChange={(e) => setEditData({ latitude: e.target.value })}
+                    onChange={(e) =>
+                      setEditData({ latitude: e.currentTarget.value })
+                    }
                     name='lat'
                   />
                 </InputWrapper>
@@ -126,7 +129,9 @@ const LocationEdit = () => {
                   <Label>Longitud</Label>
                   <InputStyled
                     defaultValue={location?.longitude}
-                    onChange={(e) => setEditData({ longitude: e.target.value })}
+                    onChange={(e) =>
+                      setEditData({ longitude: e.currentTarget.value })
+                    }
                     name='lon'
                   />
                 </InputWrapper>
