@@ -6,10 +6,4 @@ export interface Location {
   longitude?: string;
 }
 
-export const LocationInitalValue: Location = {
-  id: 1,
-  name: "",
-  countryId: 1,
-  latitude: "",
-  longitude: "",
-};
+export const LocationInitalValue = [];

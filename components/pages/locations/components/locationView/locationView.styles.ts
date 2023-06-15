@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 
 export const NoLocations = styled.p`
-  max-width: 400px;
+  max-width: 90%;
   color: ${(props) => props.theme.colors.white};
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 500;
   display: flex;
   text-align: center;
-  margin: 20px auto;
+  margin: 40px auto;
 `;
 
 export const LocationsGrid = styled.div`

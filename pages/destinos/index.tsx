@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { ROUTES } from "config";
 import { FaLink, FaPlus } from "react-icons/fa";
-import { useGetAllLocations } from "services/locations";
 
 import { Container, MainLayout } from "layouts/mainLayout";
 import { Button } from "components/commons/button";
@@ -14,8 +13,6 @@ import {
 } from "components/pages/locations/locations.style";
 
 const Locations = () => {
-  const { locations, loadingLocations, mutate } = useGetAllLocations();
-  mutate(locations);
   return (
     <MainLayout>
       <Head>
@@ -41,7 +38,7 @@ const Locations = () => {
             />
           </ButtonsWrappers>
 
-          <LocationView locations={locations} isLoading={loadingLocations} />
+          <LocationView />
         </LocationsContainer>
       </Container>
     </MainLayout>

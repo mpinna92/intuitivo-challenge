@@ -14,7 +14,7 @@ const useGetAllLocations = () => {
   );
 
   const locations: Location[] = useMemo(
-    () => data ?? [LocationInitalValue],
+    () => data ?? LocationInitalValue,
     [data],
   );
 

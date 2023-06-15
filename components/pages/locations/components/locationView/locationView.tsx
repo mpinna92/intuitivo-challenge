@@ -1,15 +1,12 @@
 import { Location } from "typing";
 import { LocationsGrid, NoLocations } from "./locationView.styles";
 import { LocationCard } from "../locationCard";
+import { useGetAllLocations } from "services/locations";
 
+const LocationView = () => {
+  const { locations, loadingLocations, locationsError } = useGetAllLocations();
 
-interface LocationViewPros {
-  locations: Location[];
-  isLoading: boolean;
-}
-
-const LocationView = ({ locations, isLoading }: LocationViewPros) => {
-  if (locations?.length)
+  if (!!locations?.length)
     return (
       <LocationsGrid>
         {locations?.map((location: Location) => (
@@ -23,7 +20,11 @@ const LocationView = ({ locations, isLoading }: LocationViewPros) => {
       </LocationsGrid>
     );
 
-  if (isLoading ) return <NoLocations>Cargando!!</NoLocations>;
+  if (locationsError)
+    return <NoLocations>🔌 Servidor no encontrado.</NoLocations>;
+
+  if (loadingLocations)
+    return <NoLocations>⌛ Cargando destinos...</NoLocations>;
 
   return <NoLocations>😔 No hay destinos para mostrar</NoLocations>;
 };
