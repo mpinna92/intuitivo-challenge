@@ -51,7 +51,7 @@ const Location = () => {
             <NoLocations>⌛ Cargando contenido...</NoLocations>
           )}
 
-          {!location && <NoLocations>⌛ Este destino no existe</NoLocations>}
+          {!location && <NoLocations>😔 Este destino no existe</NoLocations>}
 
           {location && (
             <LocationsGrid>
