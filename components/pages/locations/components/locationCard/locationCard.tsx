@@ -12,6 +12,9 @@ import {
   LocationTitle,
   LocationCountry,
   LocationCardButtons,
+  Lat,
+  Lon,
+  LocationCoordinates,
 } from "./locationCard.styles";
 
 interface LocationCardProps extends Location {
@@ -22,6 +25,8 @@ const LocationCard = ({
   id,
   countryId,
   name,
+  latitude,
+  longitude,
   buttons = true,
 }: LocationCardProps) => {
   const { countries } = useGetAllCountries();
@@ -31,6 +36,11 @@ const LocationCard = ({
     <LocationCardContainer>
       <LocationTitle>{name}</LocationTitle>
       <LocationCountry>{country}</LocationCountry>
+
+      <LocationCoordinates>
+        <Lat>Lat: {latitude}</Lat>
+        <Lon>Lon: {longitude}</Lon>
+      </LocationCoordinates>
 
       {buttons && (
         <LocationCardButtons>

@@ -8,13 +8,29 @@ export const LocationCardButtons = styled.div`
   gap: 1rem;
 `;
 
+export const Lat = styled.p`
+  font-weight: 500;
+`;
+export const Lon = styled.p`
+  font-weight: 500;
+`;
+
+export const LocationCoordinates = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${(props) => props.theme.colors.grayMedium};
+  margin-bottom: 2rem;
+  gap: 2rem;
+  text-align: center;
+`;
+
 export const LocationCountry = styled.p`
   font-size: 1.5rem;
   line-height: 1.7rem;
   color: ${(props) => props.theme.colors.grayMedium};
-  margin-bottom: 2rem;
   text-align: center;
-
 `;
 
 export const LocationTitle = styled.p`
