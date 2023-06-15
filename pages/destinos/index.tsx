@@ -1,30 +1,21 @@
 import Head from "next/head";
-import { AxiosResponse } from "axios";
-import { GetServerSideProps } from "next";
-import { Country, Location } from "typing";
 import { ROUTES } from "config";
-import { getLocations } from "services/locations";
 import { FaLink, FaPlus } from "react-icons/fa";
+import { useGetAllLocations } from "services/locations";
 
 import { Container, MainLayout } from "layouts/mainLayout";
-import { LocationCard } from "components/pages/locations/components/locationCard";
 import { Button } from "components/commons/button";
+import LocationView from "components/pages/locations/components/locationView/locationView";
 
 import {
   ButtonsWrappers,
   LocationsContainer,
-  LocationsGrid,
   LocationsTitle,
-  NoLocations,
 } from "components/pages/locations/locations.style";
-import { getCountries } from "services/countries";
 
-interface LocationsProps {
-  locations: Location[];
-  countries: Country[];
-}
-
-const Locations = ({ locations, countries }: LocationsProps) => {
+const Locations = () => {
+  const { locations, loadingLocations, mutate } = useGetAllLocations();
+  mutate(locations);
   return (
     <MainLayout>
       <Head>
@@ -50,38 +41,11 @@ const Locations = ({ locations, countries }: LocationsProps) => {
             />
           </ButtonsWrappers>
 
-          {!locations?.length && (
-            <NoLocations>😔 No hay destinos para mostrar</NoLocations>
-          )}
-
-          {locations?.map((location: Location) => (
-            <LocationsGrid key={location?.id}>
-              <LocationCard
-                key={location?.id}
-                location={location}
-                countries={countries}
-              />
-            </LocationsGrid>
-          ))}
+          <LocationView locations={locations} isLoading={loadingLocations} />
         </LocationsContainer>
       </Container>
     </MainLayout>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async ({}) => {
-  try {
-    const locations: AxiosResponse<Location[]> = await getLocations();
-    const countries: AxiosResponse<Country[]> = await getCountries();
-    return { props: { locations, countries } };
-  } catch (error) {
-    return {
-      redirect: {
-        destination: "/500",
-        permanent: true,
-      },
-    };
-  }
 };
 
 export default Locations;

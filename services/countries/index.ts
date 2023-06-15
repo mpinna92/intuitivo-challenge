@@ -1,1 +1,1 @@
-export { getCountries } from "./countries.service";
+export { default as useGetAllCountries } from "./countries.service";

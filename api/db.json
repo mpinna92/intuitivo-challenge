@@ -15,27 +15,6 @@
   ],
   "locations": [
     {
-      "id": 1,
-      "countryId": 3,
-      "name": "DeKalb",
-      "latitude": "0.8282",
-      "longitude": "-176.3506"
-    },
-    {
-      "id": 2,
-      "countryId": 3,
-      "name": "Spring Valley",
-      "latitude": "78.9203",
-      "longitude": "85.3284"
-    },
-    {
-      "id": 3,
-      "countryId": 3,
-      "name": "Rancho Cordova",
-      "latitude": "-87.1423",
-      "longitude": "-40.8860"
-    },
-    {
       "id": 4,
       "countryId": 3,
       "name": "Methuen Town",

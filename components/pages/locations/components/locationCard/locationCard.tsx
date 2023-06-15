@@ -1,6 +1,9 @@
-import { Country, Location } from "typing";
+import { Location } from "typing";
 import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
 import { Button } from "components/commons/button";
+import { getCountryName } from "utils";
+import { useGetAllCountries } from "services/countries";
+import { deleteLocation } from "services/locations";
 
 import {
   LocationCardContainer,
@@ -8,24 +11,27 @@ import {
   LocationCountry,
   LocationCardButtons,
 } from "./locationCard.styles";
-import { getCountryName } from "utils";
 
-interface LocationCardProps {
-  location: Location;
-  countries: Country[];
-}
+type LocationCardProps = Location;
 
-const LocationCard = ({ location, countries }: LocationCardProps) => {
-  const country = getCountryName(countries, location?.countryId);
+const LocationCard = ({ id, countryId, name }: LocationCardProps) => {
+  const { countries } = useGetAllCountries();
+  const country = getCountryName(countries ?? [], countryId);
+
   return (
     <LocationCardContainer>
-      <LocationTitle>{location?.name}</LocationTitle>
+      <LocationTitle>{name}</LocationTitle>
       <LocationCountry>{country}</LocationCountry>
 
       <LocationCardButtons>
         <Button text='Ver destino' icon={<FaEye />} variant='view' />
         <Button text='Editar destino' icon={<FaEdit />} variant='edit' />
-        <Button text='Borrar destino' icon={<FaTrash />} variant='delete' />
+        <Button
+          text='Borrar destino'
+          onClick={() => deleteLocation(id)}
+          icon={<FaTrash />}
+          variant='delete'
+        />
       </LocationCardButtons>
     </LocationCardContainer>
   );
