@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useMemo } from "react";
 import { API_ENDPOINTS } from "config";
 import useSWR from "swr";
 import { Country } from "typing";
@@ -12,8 +13,10 @@ const useGetAllCountries = () => {
     fetcher,
   );
 
+  const countries: Country[] = useMemo(() => data ?? [], [data]);
+
   return {
-    countries: data,
+    countries,
     errorCountries: error,
     loadingCountries: isLoading,
     validatinCountries: isValidating,
