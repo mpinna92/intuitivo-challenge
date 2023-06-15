@@ -6,6 +6,12 @@ import { useGetAllLocations } from "services/locations";
 const LocationView = () => {
   const { locations, loadingLocations, locationsError } = useGetAllLocations();
 
+  if (loadingLocations)
+    return <NoLocations>⌛ Cargando destinos...</NoLocations>;
+
+  if (locationsError)
+    return <NoLocations>🔌 Servidor no encontrado.</NoLocations>;
+
   if (!!locations?.length)
     return (
       <LocationsGrid>
@@ -19,12 +25,6 @@ const LocationView = () => {
         ))}
       </LocationsGrid>
     );
-
-  if (locationsError)
-    return <NoLocations>🔌 Servidor no encontrado.</NoLocations>;
-
-  if (loadingLocations)
-    return <NoLocations>⌛ Cargando destinos...</NoLocations>;
 
   return <NoLocations>😔 No hay destinos para mostrar</NoLocations>;
 };

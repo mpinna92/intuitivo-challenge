@@ -4,8 +4,8 @@ import { Button } from "components/commons/button";
 import { getCountryName } from "utils";
 import { useGetAllCountries } from "services/countries";
 import { deleteLocation } from "services/locations";
-/* import { mutate } from "swr";
-import { API_ENDPOINTS, API_URL } from "config"; */
+import { mutate } from "swr";
+import { API_ENDPOINTS, API_URL } from "config";
 
 import {
   LocationCardContainer,
@@ -30,8 +30,9 @@ const LocationCard = ({ id, countryId, name }: LocationCardProps) => {
         <Button text='Editar destino' icon={<FaEdit />} variant='edit' />
         <Button
           text='Borrar destino'
-          onClick={() => {
-            deleteLocation(id);
+          onClick={async () => {
+            await deleteLocation(id);
+            mutate(`${API_URL}${API_ENDPOINTS.LOCATIONS}`);
           }}
           icon={<FaTrash />}
           variant='delete'
