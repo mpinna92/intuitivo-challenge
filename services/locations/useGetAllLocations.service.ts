@@ -22,7 +22,7 @@ const useGetAllLocations = () => {
     locations,
     locationsError: error,
     loadingLocations: isLoading,
-    ...rest
+    ...rest,
   };
 };
 
