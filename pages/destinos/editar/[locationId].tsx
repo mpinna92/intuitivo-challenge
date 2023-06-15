@@ -1,9 +1,10 @@
 import Head from "next/head";
-import { ROUTES } from "config";
-import { FaLink } from "react-icons/fa";
-import { useRouter } from "next/router";
-import { useGetAllLocations } from "services/locations";
 import { Location } from "typing";
+import { API_ENDPOINTS, ROUTES } from "config";
+import { FaLink, FaSave } from "react-icons/fa";
+import { useRouter } from "next/router";
+
+import { deleteLocation, useGetAllLocations } from "services/locations";
 
 import { Container, MainLayout } from "layouts/mainLayout";
 import { Button } from "components/commons/button";
@@ -18,8 +19,9 @@ import {
   LocationsContainer,
   LocationsTitle,
 } from "components/pages/locations/locations.style";
+import { mutate } from "swr";
 
-const Location = () => {
+const LocationEdit = () => {
   const router = useRouter();
   const { query } = router;
 
@@ -37,7 +39,7 @@ const Location = () => {
       <Container>
         <LocationsContainer>
           {location && (
-            <LocationsTitle>Bienvenido a {location?.name} 🌍</LocationsTitle>
+            <LocationsTitle>Editando {location?.name} 🌍✏️</LocationsTitle>
           )}
 
           <ButtonsWrappers>
@@ -49,7 +51,11 @@ const Location = () => {
             />
           </ButtonsWrappers>
 
-          {!location && <NoLocations>😔 Este destino no existe</NoLocations>}
+          {!location && (
+            <NoLocations>
+              😔 No puedes editar un destino que no existe
+            </NoLocations>
+          )}
 
           {location && (
             <LocationsGrid>
@@ -61,6 +67,16 @@ const Location = () => {
                 longitude={location?.longitude}
                 buttons={false}
               />
+              <Button
+                text={"Guardar cambios"}
+                link={ROUTES.LOCATIONS}
+                onClick={async () => {
+                  await deleteLocation(location?.id);
+                  mutate(`${API_ENDPOINTS.LOCATIONS}`);
+                }}
+                icon={<FaSave />}
+                center
+              />
             </LocationsGrid>
           )}
         </LocationsContainer>
@@ -69,4 +85,4 @@ const Location = () => {
   );
 };
 
-export default Location;
+export default LocationEdit;

@@ -4,9 +4,9 @@ export const ROUTES = {
   LOCATIONS: "/destinos",
 };
 
-export const API_URL = "http://localhost:5000";
+export const API_BASE_URL = "http://localhost:5000";
 
 export const API_ENDPOINTS = {
-  LOCATIONS: "/locations",
-  COUNTRIES: "/countries",
+  LOCATIONS: `${API_BASE_URL}/locations`,
+  COUNTRIES: `${API_BASE_URL}/countries`,
 };

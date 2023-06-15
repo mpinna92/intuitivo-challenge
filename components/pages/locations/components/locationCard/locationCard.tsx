@@ -5,7 +5,7 @@ import { getCountryName } from "utils";
 import { useGetAllCountries } from "services/countries";
 import { deleteLocation } from "services/locations";
 import { mutate } from "swr";
-import { API_ENDPOINTS, API_URL, ROUTES } from "config";
+import { API_ENDPOINTS, ROUTES } from "config";
 
 import {
   LocationCardContainer,
@@ -50,12 +50,17 @@ const LocationCard = ({
             icon={<FaEye />}
             variant='view'
           />
-          <Button text='Editar destino' icon={<FaEdit />} variant='edit' />
+          <Button
+            text='Editar destino'
+            link={`${ROUTES.LOCATIONS}/editar/${id}`}
+            icon={<FaEdit />}
+            variant='edit'
+          />
           <Button
             text='Borrar destino'
             onClick={async () => {
               await deleteLocation(id);
-              mutate(`${API_URL}${API_ENDPOINTS.LOCATIONS}`);
+              mutate(`${API_ENDPOINTS.LOCATIONS}`);
             }}
             icon={<FaTrash />}
             variant='delete'
