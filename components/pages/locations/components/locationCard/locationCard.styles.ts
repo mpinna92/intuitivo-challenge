@@ -13,6 +13,7 @@ export const LocationCountry = styled.p`
   line-height: 1.7rem;
   color: ${(props) => props.theme.colors.grayMedium};
   margin-bottom: 2rem;
+  text-align: center;
 
 `;
 

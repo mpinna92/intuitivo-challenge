@@ -25,7 +25,6 @@ interface LocationsProps {
 }
 
 const Locations = ({ locations, countries }: LocationsProps) => {
-  console.log(locations, countries);
   return (
     <MainLayout>
       <Head>
@@ -57,7 +56,11 @@ const Locations = ({ locations, countries }: LocationsProps) => {
 
           {locations?.map((location: Location) => (
             <LocationsGrid key={location?.id}>
-              <LocationCard key={location?.id} location={location} />
+              <LocationCard
+                key={location?.id}
+                location={location}
+                countries={countries}
+              />
             </LocationsGrid>
           ))}
         </LocationsContainer>

@@ -1,4 +1,4 @@
-import { Location } from "typing";
+import { Country, Location } from "typing";
 import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
 import { Button } from "components/commons/button";
 
@@ -8,21 +8,24 @@ import {
   LocationCountry,
   LocationCardButtons,
 } from "./locationCard.styles";
+import { getCountryName } from "utils";
 
 interface LocationCardProps {
   location: Location;
+  countries: Country[];
 }
 
-const LocationCard = ({ location }: LocationCardProps) => {
+const LocationCard = ({ location, countries }: LocationCardProps) => {
+  const country = getCountryName(countries, location?.countryId);
   return (
     <LocationCardContainer>
       <LocationTitle>{location?.name}</LocationTitle>
-      <LocationCountry>{location?.country}</LocationCountry>
+      <LocationCountry>{country}</LocationCountry>
 
       <LocationCardButtons>
-        <Button text='Ver destino' icon={<FaEye />} variant="view" />
-        <Button text='Editar destino' icon={<FaEdit />} variant="edit" />
-        <Button text='Borrar destino' icon={<FaTrash />} variant="delete" />
+        <Button text='Ver destino' icon={<FaEye />} variant='view' />
+        <Button text='Editar destino' icon={<FaEdit />} variant='edit' />
+        <Button text='Borrar destino' icon={<FaTrash />} variant='delete' />
       </LocationCardButtons>
     </LocationCardContainer>
   );
