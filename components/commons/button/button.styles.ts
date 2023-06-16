@@ -12,6 +12,11 @@ export const ButtonWrapper = styled.button`
     margin: 0 auto;
   }
 
+  &.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
   a {
     width: 100%;
     min-width: 200px;

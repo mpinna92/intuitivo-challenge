@@ -32,7 +32,7 @@ const Locations = () => {
 
             <Button
               text={"Agregar Destino"}
-              link={ROUTES.ROOT}
+              link={`${ROUTES.LOCATIONS}/crear-destino`}
               icon={<FaPlus />}
               center
             />

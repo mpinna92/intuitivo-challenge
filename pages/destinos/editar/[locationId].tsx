@@ -92,7 +92,7 @@ const LocationEdit = () => {
                   <InputStyled
                     defaultValue={location?.name}
                     onChange={(e) =>
-                      setEditData({ name: e.currentTarget.value })
+                      setEditData({ name: e.target.value })
                     }
                     name='name'
                   />
@@ -103,7 +103,7 @@ const LocationEdit = () => {
                     defaultValue={location?.countryId}
                     onChange={(e) =>
                       setEditData({
-                        countryId: Number(e.currentTarget.value),
+                        countryId: Number(e.target.value),
                       })
                     }
                   >
@@ -120,7 +120,7 @@ const LocationEdit = () => {
                   <InputStyled
                     defaultValue={location?.latitude}
                     onChange={(e) =>
-                      setEditData({ latitude: e.currentTarget.value })
+                      setEditData({ latitude: e.target.value })
                     }
                     name='lat'
                   />
@@ -130,7 +130,7 @@ const LocationEdit = () => {
                   <InputStyled
                     defaultValue={location?.longitude}
                     onChange={(e) =>
-                      setEditData({ longitude: e.currentTarget.value })
+                      setEditData({ longitude: e.target.value })
                     }
                     name='lon'
                   />
