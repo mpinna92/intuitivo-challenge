@@ -1,6 +1,6 @@
 ## 👋🏼 Hola!
 
-Bienvenidos al repo del Code Challenge de front-end para Intuitiv.
+Bienvenidos al repo del Code Challenge de front-end para Intuitivo.  
 Candidato: Maximiliano Pinna
 
 ## 🏁 Inicio
