@@ -36,7 +36,7 @@ Puedes verlo 🔗[aquí](https://intuitivo-challenge.vercel.app/)
 
 🧙‍♂️ NextJS  
 💅 Styled components  
-✨ SWR
+✨ SWR  
 🔗 Dynamic routing  
 🌐 Vercel App
 
