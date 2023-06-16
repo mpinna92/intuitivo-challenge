@@ -13,11 +13,11 @@ npm i
 
 2 - Levantar backend en local:
 
-Se inciará en [http://localhost:5000](http://localhost:5000)
-
 ```bash
 npm run server
 ```
+
+Se inciará en [http://localhost:5000](http://localhost:5000)
 
 3 - Para lanzar el proyecto ejecuta:
 
@@ -35,7 +35,9 @@ Puedes verlo 🔗[aquí](https://intuitivo-challenge.vercel.app/)
 ## ⚙ Build
 
 🧙‍♂️ NextJS  
-💅 Styled components
+💅 Styled components  
+✨ SWR
+🔗 Dynamic routing  
 🌐 Vercel App
 
 🙏 ¡Gracias por su tiempo!
